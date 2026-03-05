@@ -27,7 +27,7 @@ Using libs:
 Идемпотентность запросов:
 - для предотвращения повторного создания заявки используется idempotency_key
 - в таблице withdrawals установлен уникальный индекс: UNIQUE (user_id, idempotency_key)
-- выполняется "INSERT ... ON CONFLICT DO NOTHING"
+- при вставке нового withdrawal выполняется "INSERT ... ON CONFLICT DO NOTHING"
 - если запись уже существует (withdrawal) — выполняется поиск по user_id и idempotency_key. Возвращается существующая заявка
 - выполняется проверка совпадения payload запроса, чтобы исключить конфликт разных операций с одинаковым ключом
 

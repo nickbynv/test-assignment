@@ -5,6 +5,7 @@ Required:
 Start:
 - git clone
 - go mod tidy
+- start Docker
 - go test ./internal/withdrawals -v
 
 Using libs:
